@@ -1,5 +1,5 @@
 // MODIFICA QUI LA DATA
-const dataMatrimonio = '2026-06-15T16:00:00';
+const dataMatrimonio = '2026-08-29T16:00:00';
 
 function updateCountdown() {
     const target = new Date(dataMatrimonio).getTime();
