@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Cursore
+    // 1. Cursore personalizzato
     const cursor = document.querySelector('.custom-cursor');
     if(cursor) {
         document.addEventListener('mousemove', e => {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Countdown
-    const weddingDate = new Date("August 29, 2026 16:00:00").getTime();
+    const weddingDate = new Date("August 29, 2026 16:30:00").getTime();
     const updateCountdown = () => {
         const now = new Date().getTime();
         const diff = weddingDate - now;
@@ -26,10 +26,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Scroll Logic
     const nav = document.getElementById('mainNav');
     const reveals = document.querySelectorAll('.section-reveal');
+    const scrollHint = document.getElementById('scrollHint');
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
+
+        if (window.scrollY > 100) {
+            scrollHint.style.opacity = "0";
+            scrollHint.style.pointerEvents = "none";
+        } else {
+            scrollHint.style.opacity = "1";
+        }
 
         reveals.forEach(el => {
             const rect = el.getBoundingClientRect();
@@ -38,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// 4. Copia IBAN (fuori dal DOMContentLoaded per essere globale)
 function copyIBAN() {
     const iban = document.getElementById('iban-code').innerText;
     const status = document.getElementById('copy-status');
@@ -52,7 +59,5 @@ function copyIBAN() {
             status.innerText = originalText;
             status.style.opacity = "0.5";
         }, 2500);
-    }).catch(err => {
-        console.error('Errore nel copia:', err);
     });
 }
