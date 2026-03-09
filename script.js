@@ -1,11 +1,9 @@
-// 1. Cursore
 const cursor = document.querySelector('.custom-cursor');
 document.addEventListener('mousemove', e => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 });
 
-// 2. Countdown
 const weddingDate = new Date("Aug 29, 2026 16:00:00").getTime();
 function updateCountdown() {
     const now = new Date().getTime();
@@ -18,13 +16,18 @@ function updateCountdown() {
 }
 setInterval(updateCountdown, 1000); updateCountdown();
 
-// 3. Scroll Effects
 const nav = document.getElementById('mainNav');
 const reveals = document.querySelectorAll('.section-reveal');
+const scrollInd = document.querySelector('.scroll-indicator');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
+    if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+        scrollInd.style.opacity = '0'; // Sparisce quando l'utente inizia a scorrere
+    } else {
+        nav.classList.remove('scrolled');
+        scrollInd.style.opacity = '1';
+    }
 
     reveals.forEach(el => {
         const rect = el.getBoundingClientRect();
@@ -32,38 +35,19 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// 4. Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        window.scrollTo({
-            top: target.offsetTop - 70,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: document.querySelector(this.getAttribute('href')).offsetTop - 70, behavior: 'smooth' });
     });
 });
 
-// 5. Copy IBAN (Copia solo la stringa dell'IBAN)
 function copyIBAN() {
-    const ibanString = document.getElementById('iban-code').innerText;
+    const iban = document.getElementById('iban-code').innerText;
     const status = document.getElementById('copy-status');
-    
-    navigator.clipboard.writeText(ibanString).then(() => {
+    navigator.clipboard.writeText(iban).then(() => {
         status.style.opacity = "0";
-        setTimeout(() => {
-            status.innerText = "IBAN COPIATO";
-            status.style.opacity = "1";
-            status.style.fontWeight = "600";
-        }, 300);
-        
-        setTimeout(() => {
-            status.style.opacity = "0";
-            setTimeout(() => {
-                status.innerText = "Tocca per copiare solo l'IBAN";
-                status.style.opacity = "0.5";
-                status.style.fontWeight = "400";
-            }, 300);
-        }, 3000);
+        setTimeout(() => { status.innerText = "IBAN COPIATO"; status.style.opacity = "1"; }, 300);
+        setTimeout(() => { status.style.opacity = "0"; setTimeout(() => { status.innerText = "Tocca per copiare solo l'IBAN"; status.style.opacity = "0.5"; }, 300); }, 3000);
     });
 }
