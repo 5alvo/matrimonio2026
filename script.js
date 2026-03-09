@@ -6,7 +6,7 @@ document.addEventListener('mousemove', e => {
 });
 
 // 2. Countdown
-const weddingDate = new Date("Aug 29, 2026 16:30:00").getTime();
+const weddingDate = new Date("Aug 29, 2026 16:00:00").getTime();
 function updateCountdown() {
     const now = new Date().getTime();
     const diff = weddingDate - now;
@@ -44,21 +44,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 5. Copy IBAN
+// 5. Copy IBAN (Copia solo la stringa dell'IBAN)
 function copyIBAN() {
-    const iban = document.getElementById('iban-code').innerText;
+    const ibanString = document.getElementById('iban-code').innerText;
     const status = document.getElementById('copy-status');
-    navigator.clipboard.writeText(iban).then(() => {
+    
+    navigator.clipboard.writeText(ibanString).then(() => {
         status.style.opacity = "0";
         setTimeout(() => {
             status.innerText = "IBAN COPIATO";
             status.style.opacity = "1";
+            status.style.fontWeight = "600";
         }, 300);
+        
         setTimeout(() => {
             status.style.opacity = "0";
             setTimeout(() => {
-                status.innerText = "Tocca per copiare";
+                status.innerText = "Tocca per copiare solo l'IBAN";
                 status.style.opacity = "0.5";
+                status.style.fontWeight = "400";
             }, 300);
         }, 3000);
     });
