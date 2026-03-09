@@ -2,138 +2,111 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salvo & Chiara - 29 Agosto 2026</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
-    <!-- CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>S & C — 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Sticky Header -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="nav-logo">Salvo & Chiara</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#cerimonia">Cerimonia</a></li>
-                <li><a href="#ricevimento">Ricevimento</a></li>
-                <li><a href="#doni">Doni & Pensieri</a></li>
-                <li><a href="#grazie">Grazie</a></li>
-            </ul>
+    <div class="custom-cursor"></div>
+    <div class="luxury-grain"></div>
+
+    <nav class="top-nav" id="mainNav">
+        <div class="monogram">S & C</div>
+        <div class="nav-menu">
+            <a href="#cerimonia">La Cerimonia</a>
+            <a href="#ricevimento">Il Ricevimento</a>
+            <a href="#doni">Doni</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero">
-        <div class="container hero-content fade-in">
-            <p class="announcement">✨ Ci Sposiamo! ✨</p>
-            <h1 class="names">Salvo & Chiara</h1>
-            <p class="date">29 Agosto 2026</p>
-            
-            <div id="countdown" class="countdown">
-                <div class="time-box">
-                    <span id="days">00</span>
-                    <span class="label">Giorni</span>
-                </div>
-                <div class="time-box">
-                    <span id="hours">00</span>
-                    <span class="label">Ore</span>
-                </div>
-                <div class="time-box">
-                    <span id="minutes">00</span>
-                    <span class="label">Minuti</span>
-                </div>
+    <header class="hero">
+        <div class="hero-inner">
+            <span class="eyebrow anim-fade"><strong>29 . 08 . 2026</strong></span>
+            <h1 class="main-title anim-fade-delay-1">SALVO <span class="italic">&</span> CHIARA</h1>
+            <div id="countdown" class="timer anim-fade-delay-2">
+                <div class="t-item"><span id="days">00</span><small>Giorni</small></div>
+                <div class="t-item"><span id="hours">00</span><small>Ore</small></div>
+                <div class="t-item"><span id="minutes">00</span><small>Minuti</small></div>
             </div>
         </div>
     </header>
 
-    <!-- Cerimonia -->
-    <section id="cerimonia" class="section">
-        <div class="container fade-in-scroll">
-            <h2 class="section-title">La Cerimonia</h2>
-            <div class="flex-container">
-                <div class="text-side">
-                    <p class="details">Il rito si terrà alla <strong>S. Famiglia Cozzo Rose</strong>. Sarà un momento semplice e felice, e ci farebbe piacere avervi con noi.</p>
-                    <p class="details"><strong>📍 Dove:</strong> Contrada Cozzo Rose, 96019 Modica.<br><strong>🕒 Quando:</strong> Ore 16:00</p>
-                    <div class="section-photo">
-                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyBo8e73nenk8392hpGmBPZ-ogHMXXjn_w48d-_jjNJOgyA8_XHyjCCvLHTMNKByTWcQyShW45TERVhqdX4Cytl0yTK9hKL5z47C-sCuQGQVYs_ZMC97VVchURHiETpkeKpmW8=s680-w680-h510?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Chiesa" class="photo">
-                    </div>
-                </div>
-                <div class="map-side">
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3190.6179595562708!2d14.884035576389481!3d36.8994867620956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1311850e17cae65f%3A0xae1afae2263090ab!2sChiesa%20S.Famiglia%20Cozzo%20Rose!5e0!3m2!1sit!2sit!4v1767374949047!5m2!1sit!2sit" 
-                            width="100%" 
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ricevimento -->
-    <section id="ricevimento" class="section bg-alt">
-        <div class="container fade-in-scroll">
-            <h2 class="section-title">Il Ricevimento</h2>
-            <div class="flex-container reverse">
-                <div class="text-side">
-                    <p class="details">Saremo lieti di ritrovarvi tutti alla sala ricevimenti <strong>"Il Mirto"</strong>. Sarà un piacere brindare insieme e trascorrere il resto della giornata in vostra compagnia.</p>
-                    <p class="details"><strong>📍 Dove:</strong> Contrada Masicugno Scardinia, 96019 Rosolini<br><strong>🕒 Quando:</strong> Dalle ore 19:00</p>
-                    <div class="section-photo">
-                        <img src="https://cdn0.matrimonio.com/vendor/6758/3_2/1280/jpg/cielo-stellato_2_136758-163939162918490.jpeg?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ricevimento" class="photo">
-                    </div>
-                </div>
-                <div class="map-side">
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.846315774532!2d14.920182276386884!3d36.822202466458094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13118f26c15c56d7%3A0xc039645f6fb4f514!2sil%20Mirto%20-%20Villa%20Ricevimenti!5e0!3m2!1sit!2sit!4v1767375175112!5m2!1sit!2sit" 
-                            width="100%" 
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Doni e Pensieri -->
-    <section id="doni" class="section">
-        <div class="container fade-in-scroll">
-            <h2 class="section-title">Doni & Pensieri</h2>
-            <div class="gift-content">
-                <p class="intro-text">Questo giorno sarà ancora più bello perché lo vivremo in sieme a voi. Se vi fa piacere aggiungere un piccolo tassello al nostro futuro, vi lasciamo qui uno spazio dedicato.<br>Grazie di cuore</p>
+    <main>
+        <section id="cerimonia" class="page-section section-reveal">
+            <div class="section-content">
+                <span class="step-num">I</span>
+                <h2>La Cerimonia</h2>
                 
-                <div class="iban-box" onclick="copyIBAN()">
-                    <p class="iban-label">IBAN (Clicca per copiare)</p>
-                    <code id="iban-code">IT15N0503401753000000139639</code>
-                    <span class="copy-tooltip" id="copy-tooltip">Copia</span>
+                <div class="address-box">
+                    <p class="venue">Chiesa Sacra Famiglia Cozzo Rose</p>
+                    <p class="street">C.da Cozzo Rose, 96015 Modica (RG)</p>
+                    <p class="time">Ore 16:30</p>
+                </div>
+
+                <p class="narrative">Il rito si terrà alla S. Famiglia Cozzo Rose. Sarà un momento semplice e felice, e ci farebbe piacere avervi con noi.</p>
+
+                <div class="visual-wrap">
+                    <div class="img-container">
+                        <img src="img/chiesa.jpg" alt="Chiesa" class="img-luxury">
+                    </div>
+                    <div class="map-box">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5263.843282018146!2d14.88093424157194!3d36.89639454835919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1311850e17cae65f%3A0xae1afae2263090ab!2sChiesa%20S.Famiglia%20Cozzo%20Rose!5e0!3m2!1sit!2sit!4v1773054286914!5m2!1sit!2sit" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer / Grazie -->
-    <footer id="grazie">
-        <div class="container fade-in-scroll">
-            <p class="footer-names">Con affetto, Salvo & Chiara ❤️</p>
-            <p class="footer-date">29 Agosto 2026 • Modica</p>
-            <a href="#home" class="back-to-top">Torna su ↑</a>
+        <section id="ricevimento" class="page-section alt-bg section-reveal">
+            <div class="section-content">
+                <span class="step-num">II</span>
+                <h2>Il Ricevimento</h2>
+
+                <div class="address-box">
+                    <p class="venue">Il Mirto - Villa Ricevimenti</p>
+                    <p class="street">Contrada Masicugno Scardinia, 96019 Rosolini (SR)</p>
+                    <p class="time">Dalle ore 19:00</p>
+                </div>
+
+                <p class="narrative">Avremo il piacere di ritrovarvi tutti alla sala ricevimenti "Il Mirto". Sarà un piacere brindare insieme e trascorrere il resto della giornata in vostra compagnia.</p>
+
+                <div class="visual-wrap">
+                    <div class="img-container">
+                        <img src="img/ricevimento.jpeg" alt="Ricevimento" class="img-luxury">
+                    </div>
+                    <div class="map-box">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.846315774532!2d14.920182276386884!3d36.822202466458094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13118f26c15c56d7%3A0xc039645f6fb4f514!2sil%20Mirto%20-%20Villa%20Ricevimenti!5e0!3m2!1sit!2sit!4v1773054309586!5m2!1sit!2sit" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="doni" class="page-section gift-section section-reveal">
+            <div class="section-content">
+                <h2>Doni & Pensieri</h2>
+                <p class="narrative centered">Questo giorno sarà ancora più bello perché lo vivremo insieme a voi. Se vi fa piacere aggiungere un piccolo tassello al nostro futuro, vi lasciamo qui uno spazio dedicato.<br><strong>Grazie di cuore</strong></p>
+
+                <div class="iban-card" onclick="copyIBAN()">
+                    <span class="iban-header">Codice IBAN</span>
+                    <div class="iban-string" id="iban-code">IT15N0503401753000000139639</div>
+                    <div class="copy-wrapper">
+                        <span id="copy-status" class="copy-hint">Tocca per copiare</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-line"></div>
+            <div class="footer-monogram">S <span class="dot">•</span> C</div>
+            <p class="footer-thanks">Con affetto</p>
+            <p class="footer-date">29 . 08 . 2026</p>
         </div>
     </footer>
 
-    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
