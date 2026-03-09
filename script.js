@@ -1,11 +1,11 @@
-// 1. Movimento Cursore
+// 1. Cursore
 const cursor = document.querySelector('.custom-cursor');
 document.addEventListener('mousemove', e => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 });
 
-// 2. Countdown 29 Agosto 2026
+// 2. Countdown
 const weddingDate = new Date("Aug 29, 2026 16:00:00").getTime();
 function updateCountdown() {
     const now = new Date().getTime();
@@ -19,32 +19,21 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000); 
 updateCountdown();
 
-// 3. Scroll Logic (Navbar + Reveal + Scroll Indicator)
+// 3. Scroll Logic
 const nav = document.getElementById('mainNav');
 const reveals = document.querySelectorAll('.section-reveal');
-const scrollInd = document.querySelector('.scroll-wrapper');
 
 window.addEventListener('scroll', () => {
-    // Navbar scroll effect
     if (window.scrollY > 80) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
 
-    // Scomparsa indicatore scroll
-    if (window.scrollY > 50) {
-        scrollInd.style.opacity = '0';
-        scrollInd.style.pointerEvents = 'none';
-    } else {
-        scrollInd.style.opacity = '1';
-    }
-
-    // Reveal sezioni on scroll
     reveals.forEach(el => {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.85) el.classList.add('active');
     });
 });
 
-// 4. Smooth Scroll per i link interni
+// 4. Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -56,7 +45,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 5. Copia solo l'IBAN
+// 5. Copia IBAN
 function copyIBAN() {
     const iban = document.getElementById('iban-code').innerText;
     const status = document.getElementById('copy-status');
