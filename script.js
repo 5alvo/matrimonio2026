@@ -25,40 +25,62 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 3. Logica Scroll (Barra progresso, Navbar e Reveal sezioni)
+    // 3. Logica Scroll
     const nav = document.getElementById('mainNav');
     const reveals = document.querySelectorAll('.section-reveal');
     const scrollHint = document.getElementById('scrollHint');
     const progressLine = document.getElementById("scroll-progress");
 
     window.addEventListener('scroll', () => {
-        // Calcolo Scroll Progress Line
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
         if(progressLine) progressLine.style.width = scrolled + "%";
 
-        // Navbar scrolled state
         if (window.scrollY > 50) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
 
-        // Scroll Hint visibility
         if (window.scrollY > 100) {
-            scrollHint.style.opacity = "0";
-            scrollHint.style.pointerEvents = "none";
+            if(scrollHint) {
+                scrollHint.style.opacity = "0";
+                scrollHint.style.pointerEvents = "none";
+            }
         } else {
-            scrollHint.style.opacity = "1";
+            if(scrollHint) scrollHint.style.opacity = "1";
         }
 
-        // Section reveals
         reveals.forEach(el => {
             const rect = el.getBoundingClientRect();
             if (rect.top < window.innerHeight * 0.85) el.classList.add('active');
         });
     });
+
+    // 4. Logica Petali
+    const petalsContainer = document.getElementById('petals-container');
+    function createPetal() {
+        if (!petalsContainer || document.hidden) return;
+
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        
+        const size = Math.random() * 12 + 8 + 'px';
+        petal.style.width = size;
+        petal.style.height = size;
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.animationDuration = Math.random() * 4 + 6 + 's';
+        
+        petalsContainer.appendChild(petal);
+        
+        setTimeout(() => {
+            petal.remove();
+        }, 10000);
+    }
+
+    const petalInterval = window.innerWidth < 768 ? 1200 : 700;
+    setInterval(createPetal, petalInterval);
 });
 
-// 4. Funzione Copia IBAN
+// 5. Funzione Copia IBAN
 function copyIBAN() {
     const iban = document.getElementById('iban-code').innerText;
     const status = document.getElementById('copy-status');
@@ -66,7 +88,7 @@ function copyIBAN() {
     navigator.clipboard.writeText(iban).then(() => {
         const originalText = status.innerText;
         status.innerText = "IBAN COPIATO!";
-        status.style.color = "#B35A76";
+        status.style.color = "#9e6b70"; // Colore titoli per feedback
         status.style.fontWeight = "700";
         
         setTimeout(() => {
