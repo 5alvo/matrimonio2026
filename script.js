@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 3. Logica Scroll
+    // 3. Logica Scroll & Ottimizzazione Mappe
     const nav = document.getElementById('mainNav');
     const reveals = document.querySelectorAll('.section-reveal');
     const scrollHint = document.getElementById('scrollHint');
@@ -51,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         reveals.forEach(el => {
             const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.85) el.classList.add('active');
+            // Le mappe caricano solo quando sono quasi visibili
+            if (rect.top < window.innerHeight * 1.2) el.classList.add('active');
         });
     });
 
@@ -88,7 +89,7 @@ function copyIBAN() {
     navigator.clipboard.writeText(iban).then(() => {
         const originalText = status.innerText;
         status.innerText = "IBAN COPIATO!";
-        status.style.color = "#9e6b70"; // Colore titoli per feedback
+        status.style.color = "#9e6b70";
         status.style.fontWeight = "700";
         
         setTimeout(() => {
