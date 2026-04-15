@@ -9,7 +9,7 @@
     --bg-paper: #FDFBFA;
     --bg-accent: #F9EAEB;
     --text-ink: #7a666a; /* TESTI */
-    --brand-color: #9e6b70; /* TITOLI (Ex brand-color) */
+    --brand-color: #9e6b70; /* TITOLI */
     --iban-color: #9a8478; /* CODICE IBAN */
     --gold-mute: #C2A7A9;
     --radius-soft: 20px;
@@ -27,7 +27,6 @@ body {
     overflow-x: hidden;
 }
 
-/* SFONDO CARTA MAIS DINAMICO */
 .luxury-grain-wrapper {
     position: relative;
     width: 100%;
@@ -40,7 +39,6 @@ body {
     background-attachment: scroll; 
 }
 
-/* EFFETTO PETALI */
 #petals-container {
     position: fixed;
     top: 0; 
@@ -66,7 +64,6 @@ body {
     100% { transform: translate(80px, 110vh) rotate(360deg); opacity: 0; }
 }
 
-/* SCROLL PROGRESS LINE */
 #scroll-progress {
     position: fixed;
     top: 0;
@@ -78,10 +75,10 @@ body {
     transition: width 0.1s ease-out;
 }
 
-h2, .venue, .thanks-highlight, .iban-header {
+h2, .venue, .thanks-highlight, .iban-header, .contact-name {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    color: var(--brand-color); /* TITOLI */
+    color: var(--brand-color);
 }
 
 .monogram, .hero-name, .footer-monogram {
@@ -170,9 +167,46 @@ h2 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 40px; }
 .map-box { 
     height: 350px; border-radius: var(--radius-soft); overflow: hidden; 
     filter: grayscale(1) contrast(1.2);
-    opacity: 0.8; border: 1px solid var(--bg-accent); 
+    opacity: 0.8; border: 1px solid var(--bg-accent);
+    background: #e5e3df; /* Placeholder di caricamento per UX */
 }
 .map-box iframe { width: 100%; height: 100%; border: none; }
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+}
+.contact-card {
+    background: white;
+    padding: 40px 20px;
+    border-radius: var(--radius-soft);
+    border: 1px solid var(--bg-accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.contact-name { font-size: 1.8rem; }
+.contact-link {
+    text-decoration: none;
+    color: var(--text-ink);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.contact-link:hover { color: var(--brand-color); }
+.phone-icon {
+    width: 18px;
+    height: 18px;
+    stroke: var(--brand-color);
+}
 
 .thanks-container { display: flex; align-items: center; justify-content: center; gap: 20px; margin: 50px 0; }
 .thanks-line { width: 60px; height: 1px; background: var(--brand-color); opacity: 0.4; }
@@ -208,4 +242,5 @@ h2 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 40px; }
     .hero-name { font-size: 4.5rem; }
     .hero-divider { font-size: 2rem; margin: -5px 0; }
     .page-section { padding: 80px 25px; }
+    .contact-grid { grid-template-columns: 1fr; }
 }
